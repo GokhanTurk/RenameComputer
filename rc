@@ -1,0 +1,6 @@
+$mac = (Get-NetAdapter -Physical | Where-Object {$_.Status -eq "Up"} | Select-Object -First 1).MacAddress -replace "[:-]", ""
+$mac = $mac.ToUpper()
+write-host PC ismi $mac olarak değiştirilecektir.
+pause
+Rename-Computer $mac
+pause
